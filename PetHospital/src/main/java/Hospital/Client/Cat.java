@@ -6,6 +6,10 @@ public class Cat extends Pet{
         super(name);
     }
 
+    public Cat(){
+        super("catkin");
+    }
+
     public void makeSound() {
         System.out.println("May, may");
     }

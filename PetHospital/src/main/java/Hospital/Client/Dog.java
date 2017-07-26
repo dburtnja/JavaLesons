@@ -6,6 +6,10 @@ public class Dog extends Pet {
         super(name);
     }
 
+    public Dog() {
+        super("doggy");
+    }
+
     public void makeSound() {
         System.out.println("Wof, wof");
     }
