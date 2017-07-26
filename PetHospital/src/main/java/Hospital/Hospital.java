@@ -62,14 +62,16 @@ public class Hospital {
 
         strings = str.split(" ");
         for (Client client : clients){
-            if (client.toString().contains(strings[1]))
+            if (client != null && client.toString().contains(strings[1]))
                 System.out.println(client.toString());
         }
     }
 
     private void printAll(){
-        for (Client client : clients)
-            System.out.println(client.toString());
+        for (Client client : clients) {
+            if (client != null)
+                System.out.println(client.toString());
+        }
     }
 
     private void usage(){
