@@ -1,6 +1,7 @@
 package Hospital;
 
 import Hospital.Client.Client;
+import Hospital.Client.Dog;
 
 import java.util.Scanner;
 
@@ -33,9 +34,11 @@ public class Hospital {
             else if (readStr.startsWith("add"))
                 clientWriter(readStr);
             else if (readStr.startsWith("find"))
-                clientFinder(readStr);
+                System.out.println(clientFinder(readStr).toString());
             else if (readStr.startsWith("print"))
                 printAll();
+            else if (readStr.startsWith("remove"))
+                removeClient(readStr, scanner);
             else if (!readStr.matches("")){
                 System.out.println("WRONG FORMAT");
                 usage();
@@ -57,20 +60,37 @@ public class Hospital {
         }
     }
 
-    private void clientFinder(String str){
+    private Client clientFinder(String str){
         String[]    strings;
 
         strings = str.split(" ");
         for (Client client : clients){
             if (client != null && client.toString().contains(strings[1]))
-                System.out.println(client.toString());
+                return client;
         }
+        return new Client("-", "-", new Dog("-"));
     }
 
     private void printAll(){
         for (Client client : clients) {
             if (client != null)
                 System.out.println(client.toString());
+        }
+    }
+
+    private void removeClient(String string, Scanner scanner){
+        String[]    strings;
+        Client      removeClient;
+
+        strings = string.split(" ");
+        removeClient = clientFinder(strings[1]);
+        System.out.println(removeClient.toString());
+        System.out.println("Remove client: y/n ?");
+        if (scanner.nextLine().equals("y")){
+            for (int i = 0; i < clients.length; i++){
+                if (removeClient == clients[i])
+                    clients[i] = null;
+            }
         }
     }
 
