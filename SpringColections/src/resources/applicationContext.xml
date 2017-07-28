@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+        <bean id="collection" class="net.denys.collections.CollectionInjection">
+            <property name="documentList">
+                <list>
+                    <value>LIST 1</value>
+                    <value>LIST 2</value>
+                    <value>LIST 3</value>
+                </list>
+            </property>
+
+            <property name="documentMap">
+                <map>
+                    <entry key="first" value="1"/>
+                    <entry key="second" value="2"/>
+                </map>
+            </property>
+
+            <property name="documentProperties">
+                <props>
+                    <prop key="one">STR1</prop>
+                    <prop key="two">STR2</prop>
+                    <prop key="three">Str3</prop>
+                    <prop key="four">Str 4</prop>
+                </props>
+            </property>
+
+            <property name="documentSet">
+                <set>
+                    <value>val</value>
+                    <value>t</value>
+                </set>
+            </property>
+        </bean>
+</beans>
